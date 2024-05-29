@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Banner = () => {
   return (
     <div>
@@ -5,13 +7,13 @@ const Banner = () => {
         className="hero min-h-screen"
         style={{
           backgroundImage:
-            "url('../../../../public/Firefly Create a banner for a restaurant management website with a sleek and modern design, featurin.jpg')",
+            "url('/Firefly Create a banner for a restaurant management website with a sleek and modern design, featurin.jpg')",
         }}
       >
         <div className="hero-overlay bg-opacity-60"></div>
         <div className="hero-content text-center text-neutral-content">
-          <div className="">
-            <h1 className="mb-5 text-5xl font-bold text-white">
+          <div className="max-w-md md:max-w-full">
+            <h1 className="mb-5 text-2xl md:text-5xl font-bold text-white">
               EpicureEase Excellence in Every Bite
             </h1>
             <p className="mb-5 text-gray-200">
@@ -23,7 +25,9 @@ const Banner = () => {
               where gourmet cuisine meets unparalleled service, making every
               visit a memorable one.
             </p>
-            <button className="btn btn-primary">All Menu</button>
+            <Link to={"/all-menu"}>
+              <button className="btn btn-primary">All Menu</button>
+            </Link>
           </div>
         </div>
       </div>
