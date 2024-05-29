@@ -3,6 +3,7 @@ import App from "../App";
 import Home from "../pages/home/home/Home";
 import Login from "../Login/Login";
 import SignUp from "../SignUp/SignUp";
+import AllFoodItems from "../pages/allfoodItems/AllFoodItems";
 
 export const router = createBrowserRouter([
   {
@@ -14,8 +15,8 @@ export const router = createBrowserRouter([
         element: <Home></Home>,
       },
       {
-        path: "/add-food",
-        element: <Home></Home>,
+        path: "/allFood",
+        element: <AllFoodItems></AllFoodItems>,
       },
       {
         path: "/login",
