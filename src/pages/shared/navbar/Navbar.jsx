@@ -1,6 +1,30 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../../providers/AuthProvider";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.log(error));
+  };
+
+  const navOption = (
+    <>
+      <li>
+        <Link to={"/"}>Home</Link>
+      </li>
+      <li>
+        <Link to={"/allFood"}>Add Food Items</Link>
+      </li>
+      <li>
+        <Link to={"/blog"}>Blog</Link>
+      </li>
+    </>
+  );
+
   return (
     <div>
       <div className="navbar bg-transparent absolute">
@@ -26,68 +50,53 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-transparent rounded-box w-52"
             >
-              <li>
-                <Link to={"/"}>Home</Link>
-              </li>
-              <li>
-                <Link to={"/allFood"}>Add Food Items</Link>
-              </li>
-              <li>
-                <Link to={"/blog"}>Blog</Link>
-              </li>
+              {navOption}
             </ul>
           </div>
           <a className="btn btn-ghost text-xl">EpicureEase</a>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-            <li>
-              <Link to={"/"}>Home</Link>
-            </li>
-            <li>
-              <Link to={"/allFood"}>ALL Food Items</Link>
-            </li>
-            <li>
-              <Link to={"/blog"}>Blog</Link>
-            </li>
-          </ul>
-        </div>
-        <div className="navbar-end">
-          <Link to={"/login"}>
-            <li className="btn btn-sm">Login</li>
-          </Link>
+          <ul className="menu menu-horizontal px-1">{navOption}</ul>
         </div>
 
-        <div>
-          <div className="dropdown dropdown-end">
-            <div
-              tabIndex={0}
-              role="button"
-              className="btn btn-ghost btn-circle avatar"
-            >
-              <div className="w-10 rounded-full">
-                <img
-                  alt="Tailwind CSS Navbar component"
-                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-                />
+        {user ? (
+          <div className="navbar-end">
+            <div className="dropdown dropdown-end">
+              <div
+                tabIndex={0}
+                role="button"
+                className="btn btn-ghost btn-circle avatar"
+              >
+                <div className="w-10 rounded-full">
+                  <img
+                    alt="Tailwind CSS Navbar component"
+                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+                  />
+                </div>
               </div>
+              <ul
+                tabIndex={0}
+                className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+              >
+                <li>
+                  <a className="justify-between">Profile</a>
+                </li>
+                <li>
+                  <a>Settings</a>
+                </li>
+                <li>
+                  <button onClick={handleLogOut}>Logout</button>
+                </li>
+              </ul>
             </div>
-            <ul
-              tabIndex={0}
-              className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
-            >
-              <li>
-                <a className="justify-between">Profile</a>
-              </li>
-              <li>
-                <a>Settings</a>
-              </li>
-              <li>
-                <a>Logout</a>
-              </li>
-            </ul>
           </div>
-        </div>
+        ) : (
+          <div className="navbar-end">
+            <Link to={"/login"}>
+              <li className="btn btn-sm">Login</li>
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );
