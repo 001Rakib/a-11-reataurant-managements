@@ -5,7 +5,7 @@ import FoodCard from "../../components/foodCard/FoodCard";
 const AllFoodItems = () => {
   const axiosPublic = useAxiosPublic();
 
-  const { data } = useQuery({
+  const { data, isPending: loading } = useQuery({
     queryKey: ["foods"],
     queryFn: async () => {
       const res = await axiosPublic.get("/foods");
@@ -13,9 +13,19 @@ const AllFoodItems = () => {
     },
   });
 
+  if (loading) {
+    return (
+      <>
+        <div className="max-w-screen-xl mx-auto grid justify-center items-center h-[100vh]">
+          <span className="loading loading-spinner loading-lg"></span>
+        </div>
+      </>
+    );
+  }
+
   return (
-    <div className="grid grid-cols-3 gap-4 max-w-screen-xl mx-auto">
-      {data.map((food) => (
+    <div className="grid grid-cols-3 gap-4 max-w-screen-xl mx-auto py-20">
+      {data?.map((food) => (
         <FoodCard key={food._id} food={food}></FoodCard>
       ))}
     </div>

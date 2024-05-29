@@ -1,11 +1,5 @@
-import { Outlet } from "react-router-dom";
-
 function App() {
-  return (
-    <>
-      <Outlet></Outlet>
-    </>
-  );
+  return <></>;
 }
 
 export default App;

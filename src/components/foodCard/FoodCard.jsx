@@ -2,7 +2,7 @@
 const FoodCard = ({ food }) => {
   return (
     <div>
-      <div className="card  bg-base-100">
+      <div className="card  bg-base-100 shadow-lg">
         <figure>
           <img src={food.foodImage} alt="" />
         </figure>

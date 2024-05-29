@@ -17,7 +17,7 @@ const Navbar = () => {
         <Link to={"/"}>Home</Link>
       </li>
       <li>
-        <Link to={"/allFood"}>Add Food Items</Link>
+        <Link to={"/allFood"}>All Food Items</Link>
       </li>
       <li>
         <Link to={"/blog"}>Blog</Link>
@@ -27,7 +27,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className="navbar bg-transparent absolute">
+      <div className="navbar bg-black bg-opacity-20 fixed text-white z-10">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -68,10 +68,7 @@ const Navbar = () => {
                 className="btn btn-ghost btn-circle avatar"
               >
                 <div className="w-10 rounded-full">
-                  <img
-                    alt="Tailwind CSS Navbar component"
-                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-                  />
+                  <img alt="User Image" src={user.photoURL} />
                 </div>
               </div>
               <ul
@@ -79,10 +76,15 @@ const Navbar = () => {
                 className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
               >
                 <li>
-                  <a className="justify-between">Profile</a>
+                  <a className="justify-between">My Added Food Items</a>
                 </li>
                 <li>
-                  <a>Settings</a>
+                  <Link to={"/my-profile/add-food"} className="justify-between">
+                    Add a Food Items
+                  </Link>
+                </li>
+                <li>
+                  <a>My Ordered Food Items</a>
                 </li>
                 <li>
                   <button onClick={handleLogOut}>Logout</button>
