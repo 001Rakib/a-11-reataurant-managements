@@ -45,7 +45,7 @@ const AddFood = () => {
       <Helmet>
         <title>My Profile | Add Food</title>
       </Helmet>
-      <div className="max-w-screen-xl mx-auto bg-green-400 px-5 py-5 text-black">
+      <div className="max-w-screen-xl mx-auto bg-green-400 px-5 py-24 text-black">
         <h1 className="text-center text-4xl font-bold text-green-400">
           <span className="bg-green-200 px-2 py-1 rounded-md">
             Add a Food Item

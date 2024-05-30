@@ -28,7 +28,7 @@ const MyAddedFood = () => {
   }
 
   return (
-    <div className="max-w-screen-xl mx-auto my-10">
+    <div className="max-w-screen-xl mx-auto py-24">
       <Helmet>
         <title>My Profile | My Added Food</title>
       </Helmet>

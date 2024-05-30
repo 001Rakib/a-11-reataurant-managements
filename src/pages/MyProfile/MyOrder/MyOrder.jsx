@@ -25,7 +25,7 @@ const MyOrder = () => {
       <Helmet>
         <title>My Profile | My Orders</title>
       </Helmet>
-      <div className="max-w-screen-xl mx-auto my-10">
+      <div className="max-w-screen-xl mx-auto py-24">
         <h1 className="text-3xl font-bold text-center text-blue-500">
           <span className="bg-blue-200 px-2 py-1 rounded-md">My Orders</span>
         </h1>

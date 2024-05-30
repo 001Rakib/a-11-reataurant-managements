@@ -12,6 +12,7 @@ import UpdateFood from "../pages/MyProfile/updateFood/UpdateFood";
 import SingleFoodPage from "../pages/singleFoodPage/SingleFoodPage";
 import Order from "../pages/orderPage/Order";
 import MyOrder from "../pages/MyProfile/MyOrder/MyOrder";
+import PrivateRoutes from "./PrivateRoutes";
 
 export const router = createBrowserRouter([
   {
@@ -35,7 +36,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/order/:id",
-        element: <Order></Order>,
+        element: (
+          <PrivateRoutes>
+            <Order></Order>
+          </PrivateRoutes>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:3000/foods/${params.id}`),
       },
@@ -51,24 +56,44 @@ export const router = createBrowserRouter([
   },
   {
     path: "/my-profile",
-    element: <MyProfile></MyProfile>,
+    element: (
+      <PrivateRoutes>
+        <MyProfile></MyProfile>
+      </PrivateRoutes>
+    ),
     errorElement: <Error></Error>,
     children: [
       {
         path: "add-food",
-        element: <AddFood></AddFood>,
+        element: (
+          <PrivateRoutes>
+            <AddFood></AddFood>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "my-added-food",
-        element: <MyAddedFood></MyAddedFood>,
+        element: (
+          <PrivateRoutes>
+            <MyAddedFood></MyAddedFood>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "my-orderer-food",
-        element: <MyOrder></MyOrder>,
+        element: (
+          <PrivateRoutes>
+            <MyOrder></MyOrder>
+          </PrivateRoutes>
+        ),
       },
       {
         path: "update-food/:id",
-        element: <UpdateFood></UpdateFood>,
+        element: (
+          <PrivateRoutes>
+            <UpdateFood></UpdateFood>
+          </PrivateRoutes>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:3000/foods/${params.id}`),
       },
