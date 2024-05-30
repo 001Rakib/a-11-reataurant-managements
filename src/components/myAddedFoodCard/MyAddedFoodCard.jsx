@@ -34,7 +34,7 @@ const MyAddedFoodCard = ({ foodItem }) => {
                 </div>
                 <div className="min-w-0 flex-1">
                   <p className="truncate text-sm font-medium text-gray-900 dark:text-white">
-                    <Link>
+                    <Link to={`/my-profile/update-food/${foodItem._id}`}>
                       {" "}
                       <button className="btn btn-accent">
                         Update Food

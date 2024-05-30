@@ -8,6 +8,7 @@ import MyProfile from "../layout/MyProfile";
 import AddFood from "../pages/MyProfile/AddFood/AddFood";
 import MyAddedFood from "../pages/MyProfile/MyAddedFood/MyAddedFood";
 import Error from "../pages/Error/Error";
+import UpdateFood from "../pages/MyProfile/updateFood/UpdateFood";
 
 export const router = createBrowserRouter([
   {
@@ -45,6 +46,12 @@ export const router = createBrowserRouter([
       {
         path: "my-added-food",
         element: <MyAddedFood></MyAddedFood>,
+      },
+      {
+        path: "update-food/:id",
+        element: <UpdateFood></UpdateFood>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/foods/${params.id}`),
       },
     ],
   },
