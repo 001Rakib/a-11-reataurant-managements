@@ -7,11 +7,13 @@ import Main from "../layout/Main";
 import MyProfile from "../layout/MyProfile";
 import AddFood from "../pages/MyProfile/AddFood/AddFood";
 import MyAddedFood from "../pages/MyProfile/MyAddedFood/MyAddedFood";
+import Error from "../pages/Error/Error";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <Error></Error>,
     children: [
       {
         path: "/",
@@ -34,6 +36,7 @@ export const router = createBrowserRouter([
   {
     path: "/my-profile",
     element: <MyProfile></MyProfile>,
+    errorElement: <Error></Error>,
     children: [
       {
         path: "add-food",

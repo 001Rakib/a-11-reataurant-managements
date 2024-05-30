@@ -1,19 +1,15 @@
 /* eslint-disable react/prop-types */
 import { Card } from "flowbite-react";
+import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 
 const MyAddedFoodCard = ({ foodItem }) => {
   return (
     <div>
+      <Helmet>
+        <title>My Profile | My Added Food</title>
+      </Helmet>
       <Card className=" dark:bg-white">
-        <div className="mb-1 flex justify-between">
-          <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white text-center">
-            Name
-          </h5>
-          <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white text-center">
-            Price
-          </h5>
-        </div>
         <div className="flow-root dark:bg-white">
           <ul className="divide-y divide-gray-200 dark:divide-gray-700 dark:text-white">
             <li className="py-3 sm:py-4">
@@ -32,6 +28,7 @@ const MyAddedFoodCard = ({ foodItem }) => {
                     {foodItem.foodName}
                   </p>
                   <p className="truncate text-sm text-gray-500 dark:text-white">
+                    <span className="font-medium">Category:</span>{" "}
                     {foodItem.category}
                   </p>
                 </div>

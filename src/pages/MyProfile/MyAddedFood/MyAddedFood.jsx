@@ -28,9 +28,19 @@ const MyAddedFood = () => {
 
   return (
     <div className="max-w-screen-xl mx-auto my-10">
-      <h1 className="text-3xl font-bold text-center">My Added Foods</h1>
+      <h1 className="text-3xl font-bold text-center text-blue-500">
+        <span className="bg-blue-200 px-2 py-1 rounded-md">My Added Foods</span>
+      </h1>
 
       <div className="my-5">
+        <div className="mb-1 flex justify-between">
+          <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white text-center">
+            Name
+          </h5>
+          <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white text-center">
+            Price
+          </h5>
+        </div>
         {data?.map((item) => (
           <MyAddedFoodCard key={item._id} foodItem={item}></MyAddedFoodCard>
         ))}

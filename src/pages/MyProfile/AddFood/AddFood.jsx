@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../../../providers/AuthProvider";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const AddFood = () => {
   const { register, handleSubmit, reset } = useForm();
@@ -32,7 +33,7 @@ const AddFood = () => {
       Swal.fire({
         position: "center",
         icon: "success",
-        title: `${data.name} is added to the menu`,
+        title: `${data.foodName} is added to All Food Items`,
         showConfirmButton: false,
         timer: 1500,
       });
@@ -41,7 +42,10 @@ const AddFood = () => {
 
   return (
     <div>
-      <div className="max-w-screen-xl mx-auto bg-green-400 px-5 py-5 text-white">
+      <Helmet>
+        <title>My Profile | Add Food</title>
+      </Helmet>
+      <div className="max-w-screen-xl mx-auto bg-green-400 px-5 py-5 text-black">
         <h1 className="text-center text-4xl font-bold text-green-400">
           <span className="bg-green-200 px-2 py-1 rounded-md">
             Add a Food Item
@@ -50,7 +54,7 @@ const AddFood = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <label className="form-control w-full my-6">
             <div className="label">
-              <span className="label-text text-white">Food Name</span>
+              <span className="label-text text-black">Food Name</span>
             </div>
             <input
               {...register("foodName", { required: true })}
@@ -61,7 +65,7 @@ const AddFood = () => {
           </label>
           <label className="form-control w-full my-6">
             <div className="label">
-              <span className="label-text text-white">Food Image URL</span>
+              <span className="label-text text-black">Food Image URL</span>
             </div>
             <input
               {...register("foodImage", { required: true })}
@@ -76,7 +80,7 @@ const AddFood = () => {
             <div className="form-control w-full my-6">
               <label>
                 <div className="label">
-                  <span className="label-text text-white">Category</span>
+                  <span className="label-text text-black">Category</span>
                 </div>
                 <input
                   {...register("foodCategory", { required: true })}
@@ -90,7 +94,7 @@ const AddFood = () => {
             <div className="form-control w-full my-6">
               <label>
                 <div className="label">
-                  <span className="label-text text-white">Quantity</span>
+                  <span className="label-text text-black">Quantity</span>
                 </div>
                 <input
                   {...register("quantity", { required: true })}
@@ -103,14 +107,14 @@ const AddFood = () => {
           </div>
           <label>
             <div className="label">
-              <span className="label-text font-bold text-white">Add By</span>
+              <span className="label-text font-bold text-black">Add By</span>
             </div>
           </label>
           <div className="flex gap-6">
             <div className="form-control w-full">
               <label>
                 <div className="label">
-                  <span className="label-text text-white">Name</span>
+                  <span className="label-text text-black">Name</span>
                 </div>
                 <input
                   {...register("userName", { required: true })}
@@ -125,7 +129,7 @@ const AddFood = () => {
             <div className="form-control w-full">
               <label>
                 <div className="label">
-                  <span className="label-text text-white">Email</span>
+                  <span className="label-text text-black">Email</span>
                 </div>
                 <input
                   {...register("email", { required: true })}
@@ -142,7 +146,7 @@ const AddFood = () => {
             <div className="form-control w-1/2 my-6">
               <label>
                 <div className="label">
-                  <span className="label-text text-white">
+                  <span className="label-text text-black">
                     Food Origin (Country)
                   </span>
                 </div>
@@ -157,7 +161,7 @@ const AddFood = () => {
             <div className="form-control w-1/2 my-6">
               <label>
                 <div className="label">
-                  <span className="label-text text-white">Price</span>
+                  <span className="label-text text-black">Price</span>
                 </div>
                 <input
                   {...register("price", { required: true })}
@@ -171,7 +175,7 @@ const AddFood = () => {
           <div>
             <label className="form-control ">
               <div className="label">
-                <span className="label-text text-white">
+                <span className="label-text text-black">
                   Short description of the food item
                 </span>
               </div>
