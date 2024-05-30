@@ -2,9 +2,9 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { useContext } from "react";
 import { AuthContext } from "../../../../providers/AuthProvider";
-import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import { Link, useLoaderData } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const UpdateFood = () => {
   const { register, handleSubmit } = useForm();
@@ -19,7 +19,7 @@ const UpdateFood = () => {
     country,
     description,
   } = useLoaderData();
-  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
   const onSubmit = async (data) => {
     console.log(data);
 
@@ -34,7 +34,7 @@ const UpdateFood = () => {
       country: data.foodOrigin,
       description: data.description,
     };
-    const updateFood = await axiosPublic.patch(
+    const updateFood = await axiosSecure.patch(
       `/foods/${_id}`,
       updatedFoodItem
     );

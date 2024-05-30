@@ -2,14 +2,14 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { useContext } from "react";
 import { AuthContext } from "../../../../providers/AuthProvider";
-import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const AddFood = () => {
   const { register, handleSubmit, reset } = useForm();
   const { user } = useContext(AuthContext);
-  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
   const onSubmit = async (data) => {
     console.log(data);
 
@@ -24,7 +24,7 @@ const AddFood = () => {
       country: data.foodOrigin,
       description: data.description,
     };
-    const addFood = await axiosPublic.post("/foods", foodItem);
+    const addFood = await axiosSecure.post("/foods", foodItem);
     console.log(addFood.data);
 
     if (addFood.data.insertedId) {

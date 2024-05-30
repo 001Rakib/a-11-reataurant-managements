@@ -3,15 +3,15 @@ import { Helmet } from "react-helmet";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { useForm } from "react-hook-form";
-import useAxiosPublic from "../../hooks/useAxiosPublic";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 const Order = () => {
   const { user } = useContext(AuthContext);
   const { register, handleSubmit } = useForm();
   const { foodName, foodImage, price, quantity } = useLoaderData();
+  const axiosSecure = useAxiosSecure();
 
-  const axiosPublic = useAxiosPublic();
   const onSubmit = async (orderData) => {
     const orderedFood = {
       foodName: orderData.foodName,
@@ -22,7 +22,7 @@ const Order = () => {
       price: orderData.price,
     };
 
-    const orderFood = await axiosPublic.post("/orders", orderedFood);
+    const orderFood = await axiosSecure.post("/orders", orderedFood);
     console.log(orderFood.data);
 
     if (orderFood.data.insertedId) {

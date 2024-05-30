@@ -1,9 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "./useAuth";
-import useAxiosPublic from "./useAxiosPublic";
 import { AuthContext } from "../../providers/AuthProvider";
+import useAxiosSecure from "./useAxiosSecure";
 const useMyOrder = () => {
-  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
   const { user } = useAuth(AuthContext);
   const {
     data: orders = [],
@@ -12,7 +12,7 @@ const useMyOrder = () => {
   } = useQuery({
     queryKey: ["orders"],
     queryFn: async () => {
-      const res = await axiosPublic.get(`/orders?email=${user.email}`);
+      const res = await axiosSecure.get(`/orders?email=${user.email}`);
       return res.data;
     },
   });
