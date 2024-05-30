@@ -9,12 +9,13 @@ import Swal from "sweetalert2";
 const Order = () => {
   const { user } = useContext(AuthContext);
   const { register, handleSubmit } = useForm();
-  const { foodName, price, quantity } = useLoaderData();
+  const { foodName, foodImage, price, quantity } = useLoaderData();
 
   const axiosPublic = useAxiosPublic();
   const onSubmit = async (orderData) => {
     const orderedFood = {
       foodName: orderData.foodName,
+      foodImage: foodImage,
       OrderedQuantity: orderData.orderedQuantity,
       userName: orderData.userName,
       email: orderData.email,

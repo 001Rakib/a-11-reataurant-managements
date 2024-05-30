@@ -89,7 +89,9 @@ const Navbar = () => {
                   </Link>
                 </li>
                 <li>
-                  <a>My Ordered Food Items</a>
+                  <Link to={"/my-profile/my-orderer-food"}>
+                    My Ordered Food Items
+                  </Link>
                 </li>
                 <li>
                   <button onClick={handleLogOut}>Logout</button>

@@ -3,6 +3,7 @@ import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import { useContext } from "react";
 import { AuthContext } from "../../../../providers/AuthProvider";
 import MyAddedFoodCard from "../../../components/myAddedFoodCard/MyAddedFoodCard";
+import { Helmet } from "react-helmet";
 
 const MyAddedFood = () => {
   const axiosPublic = useAxiosPublic();
@@ -28,6 +29,9 @@ const MyAddedFood = () => {
 
   return (
     <div className="max-w-screen-xl mx-auto my-10">
+      <Helmet>
+        <title>My Profile | My Added Food</title>
+      </Helmet>
       <h1 className="text-3xl font-bold text-center text-blue-500">
         <span className="bg-blue-200 px-2 py-1 rounded-md">My Added Foods</span>
       </h1>

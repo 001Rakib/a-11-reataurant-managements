@@ -1,14 +1,10 @@
 /* eslint-disable react/prop-types */
 import { Card } from "flowbite-react";
-import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 
 const MyAddedFoodCard = ({ foodItem }) => {
   return (
     <div>
-      <Helmet>
-        <title>My Profile | My Added Food</title>
-      </Helmet>
       <Card className=" dark:bg-white">
         <div className="flow-root dark:bg-white">
           <ul className="divide-y divide-gray-200 dark:divide-gray-700 dark:text-white">

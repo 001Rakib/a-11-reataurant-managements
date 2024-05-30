@@ -11,6 +11,7 @@ import Error from "../pages/Error/Error";
 import UpdateFood from "../pages/MyProfile/updateFood/UpdateFood";
 import SingleFoodPage from "../pages/singleFoodPage/SingleFoodPage";
 import Order from "../pages/orderPage/Order";
+import MyOrder from "../pages/MyProfile/MyOrder/MyOrder";
 
 export const router = createBrowserRouter([
   {
@@ -60,6 +61,10 @@ export const router = createBrowserRouter([
       {
         path: "my-added-food",
         element: <MyAddedFood></MyAddedFood>,
+      },
+      {
+        path: "my-orderer-food",
+        element: <MyOrder></MyOrder>,
       },
       {
         path: "update-food/:id",
