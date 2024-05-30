@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 /* eslint-disable react/prop-types */
 const FoodCard = ({ food }) => {
   return (
@@ -12,7 +14,9 @@ const FoodCard = ({ food }) => {
           <p> Price:$ {food.price} </p>
           <p> Quantity: {food.quantity} </p>
           <div className="card-actions justify-end">
-            <button className="btn btn-primary">Details</button>
+            <Link to={`/foods/${food._id}`}>
+              <button className="btn btn-primary">Details</button>
+            </Link>
           </div>
         </div>
       </div>

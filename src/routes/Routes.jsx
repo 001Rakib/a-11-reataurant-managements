@@ -9,6 +9,7 @@ import AddFood from "../pages/MyProfile/AddFood/AddFood";
 import MyAddedFood from "../pages/MyProfile/MyAddedFood/MyAddedFood";
 import Error from "../pages/Error/Error";
 import UpdateFood from "../pages/MyProfile/updateFood/UpdateFood";
+import SingleFoodPage from "../pages/singleFoodPage/SingleFoodPage";
 
 export const router = createBrowserRouter([
   {
@@ -23,6 +24,12 @@ export const router = createBrowserRouter([
       {
         path: "/allFood",
         element: <AllFoodItems></AllFoodItems>,
+      },
+      {
+        path: "/foods/:id",
+        element: <SingleFoodPage></SingleFoodPage>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/foods/${params.id}`),
       },
       {
         path: "/login",
