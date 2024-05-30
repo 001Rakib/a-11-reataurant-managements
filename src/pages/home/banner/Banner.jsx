@@ -25,7 +25,7 @@ const Banner = () => {
               where gourmet cuisine meets unparalleled service, making every
               visit a memorable one.
             </p>
-            <Link to={"/all-menu"}>
+            <Link to={"/allFood"}>
               <button className="btn btn-primary">All Menu</button>
             </Link>
           </div>

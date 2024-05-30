@@ -60,7 +60,7 @@ const Navbar = () => {
         </div>
 
         {user ? (
-          <div className="navbar-end">
+          <div className="navbar-end text-black">
             <div className="dropdown dropdown-end">
               <div
                 tabIndex={0}
@@ -76,7 +76,12 @@ const Navbar = () => {
                 className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
               >
                 <li>
-                  <a className="justify-between">My Added Food Items</a>
+                  <Link
+                    to={"/my-profile/my-added-food"}
+                    className="justify-between"
+                  >
+                    My Added Food Items
+                  </Link>
                 </li>
                 <li>
                   <Link to={"/my-profile/add-food"} className="justify-between">

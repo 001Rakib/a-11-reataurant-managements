@@ -6,6 +6,7 @@ import AllFoodItems from "../pages/allfoodItems/AllFoodItems";
 import Main from "../layout/Main";
 import MyProfile from "../layout/MyProfile";
 import AddFood from "../pages/MyProfile/AddFood/AddFood";
+import MyAddedFood from "../pages/MyProfile/MyAddedFood/MyAddedFood";
 
 export const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ export const router = createBrowserRouter([
       {
         path: "add-food",
         element: <AddFood></AddFood>,
+      },
+      {
+        path: "my-added-food",
+        element: <MyAddedFood></MyAddedFood>,
       },
     ],
   },

@@ -3,6 +3,7 @@ import Swal from "sweetalert2";
 import { useContext } from "react";
 import { AuthContext } from "../../../../providers/AuthProvider";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import { Link } from "react-router-dom";
 
 const AddFood = () => {
   const { register, handleSubmit, reset } = useForm();
@@ -183,6 +184,9 @@ const AddFood = () => {
           </div>
           <div className="text-center my-10">
             <button className="btn">Add Food</button>
+            <Link to={"/"}>
+              <button className="btn ml-4">Back To Home</button>
+            </Link>
           </div>
         </form>
       </div>
