@@ -1,13 +1,8 @@
-// import { useContext } from "react";
-// import useAxiosPublic from "../../../hooks/useAxiosPublic";
-// import { AuthContext } from "../../../../providers/AuthProvider";
-// import { useQuery } from "@tanstack/react-query";
 import { Helmet } from "react-helmet";
 import MyOrderCard from "../../../components/myOrder/MyOrderCard";
 import useMyOrder from "../../../hooks/useMyOrder";
 
 const MyOrder = () => {
-  //   const axiosPublic = useAxiosPublic();
   const [orders, , loading] = useMyOrder();
 
   if (loading) {

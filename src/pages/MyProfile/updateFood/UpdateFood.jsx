@@ -2,12 +2,14 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { useContext } from "react";
 import { AuthContext } from "../../../../providers/AuthProvider";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const UpdateFood = () => {
   const { register, handleSubmit } = useForm();
+  const navigate = useNavigate();
+
   const { user } = useContext(AuthContext);
   const {
     _id,
@@ -46,6 +48,7 @@ const UpdateFood = () => {
         showConfirmButton: false,
         timer: 1500,
       });
+      navigate("/my-profile/my-added-food");
     }
   };
 

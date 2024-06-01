@@ -9,7 +9,7 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 const Order = () => {
   const { user } = useContext(AuthContext);
   const { register, handleSubmit } = useForm();
-  const { foodName, foodImage, price, quantity } = useLoaderData();
+  const { foodName, foodImage, price, quantity, email } = useLoaderData();
   const axiosSecure = useAxiosSecure();
 
   const onSubmit = async (orderData) => {
@@ -22,17 +22,25 @@ const Order = () => {
       price: orderData.price,
     };
 
-    const orderFood = await axiosSecure.post("/orders", orderedFood);
-
-    if (orderFood.data.insertedId) {
-      // show success popup
+    if (email === user.email) {
       Swal.fire({
-        position: "center",
-        icon: "success",
-        title: `${orderData.foodName} is ordered successfully`,
-        showConfirmButton: false,
-        timer: 1500,
+        icon: "error",
+        title: "Oops...",
+        text: "You can not order food which is added by you",
       });
+    } else {
+      const orderFood = await axiosSecure.post("/orders", orderedFood);
+
+      if (orderFood.data.insertedId) {
+        // show success popup
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: `${orderData.foodName} is ordered successfully`,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
     }
   };
 
