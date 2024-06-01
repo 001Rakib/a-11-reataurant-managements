@@ -21,8 +21,6 @@ const UpdateFood = () => {
   } = useLoaderData();
   const axiosSecure = useAxiosSecure();
   const onSubmit = async (data) => {
-    console.log(data);
-
     const updatedFoodItem = {
       foodName: data.foodName,
       foodImage: data.foodImage,
@@ -38,7 +36,6 @@ const UpdateFood = () => {
       `/foods/${_id}`,
       updatedFoodItem
     );
-    console.log(updateFood.data);
 
     if (updateFood.data.modifiedCount) {
       // show success popup
@@ -58,7 +55,7 @@ const UpdateFood = () => {
         <Helmet>
           <title>My Profile | Update Food</title>
         </Helmet>
-        <div className="max-w-screen-xl mx-auto bg-green-400 px-5 py-5 text-black">
+        <div className="max-w-screen-xl mx-auto bg-green-400 px-5  text-black py-24">
           <h1 className="text-center text-4xl font-bold text-green-400">
             <span className="bg-green-200 px-2 py-1 rounded-md">
               Update Food

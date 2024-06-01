@@ -7,7 +7,7 @@ const OrderOnline = () => {
       <h1 className="text-center text-4xl font-bold text-green-400 my-16">
         <span className="bg-green-200 px-2 py-1 rounded-md">Order Online</span>
       </h1>
-      <div className="max-w-screen-xl mx-auto flex my-20 gap-10 justify-center items-center">
+      <div className="max-w-screen-xl mx-auto flex-col px-5 space-y-2 md:px-0  md:flex md:flex-row my-20 gap-10 justify-center items-center">
         <div className="max-w-lg">
           <img src={OnlineOrderImg} alt="" />
         </div>

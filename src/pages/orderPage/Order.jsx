@@ -23,7 +23,6 @@ const Order = () => {
     };
 
     const orderFood = await axiosSecure.post("/orders", orderedFood);
-    console.log(orderFood.data);
 
     if (orderFood.data.insertedId) {
       // show success popup

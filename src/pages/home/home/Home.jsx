@@ -3,6 +3,7 @@ import Navbar from "../../shared/navbar/Navbar";
 import Banner from "../banner/Banner";
 import ToopFoods from "../topFoods/ToopFoods";
 import OrderOnline from "../orderOnline/OrderOnline";
+import AboutUs from "../aboutUs/AboutUs";
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       <Banner></Banner>
       <ToopFoods></ToopFoods>
       <OrderOnline></OrderOnline>
+      <AboutUs></AboutUs>
     </div>
   );
 };

@@ -11,8 +11,6 @@ const AddFood = () => {
   const { user } = useContext(AuthContext);
   const axiosSecure = useAxiosSecure();
   const onSubmit = async (data) => {
-    console.log(data);
-
     const foodItem = {
       foodName: data.foodName,
       foodImage: data.foodImage,
@@ -25,7 +23,6 @@ const AddFood = () => {
       description: data.description,
     };
     const addFood = await axiosSecure.post("/foods", foodItem);
-    console.log(addFood.data);
 
     if (addFood.data.insertedId) {
       // show success popup

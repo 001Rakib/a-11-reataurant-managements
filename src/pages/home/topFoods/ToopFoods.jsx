@@ -31,7 +31,7 @@ const ToopFoods = () => {
       <h1 className="text-center text-4xl font-bold text-green-400 my-10">
         <span className="bg-green-200 px-2 py-1 rounded-md">Top Food</span>
       </h1>
-      <div className="grid grid-cols-3 gap-4 ">
+      <div className="grid grid-cols-1 px-5 md:px-0 gap-5 md:grid-cols-3 md:gap-4 ">
         {topFood.map((food) => (
           <FoodCard key={food._id} food={food}></FoodCard>
         ))}

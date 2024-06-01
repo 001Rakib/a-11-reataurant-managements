@@ -2,7 +2,7 @@ import { Accordion } from "flowbite-react";
 
 const Blogs = () => {
   return (
-    <div className="max-w-screen-xl mx-auto py-24">
+    <div className="max-w-screen-xl mx-auto py-24 px-5 md:px-0">
       <Accordion>
         <Accordion.Panel>
           <Accordion.Title>What is One way data binding?</Accordion.Title>
