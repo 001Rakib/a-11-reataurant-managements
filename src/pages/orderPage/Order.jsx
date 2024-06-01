@@ -9,7 +9,8 @@ import useAxiosSecure from "../../hooks/useAxiosSecure";
 const Order = () => {
   const { user } = useContext(AuthContext);
   const { register, handleSubmit } = useForm();
-  const { foodName, foodImage, price, quantity, email } = useLoaderData();
+  const { foodName, foodImage, price, quantity, email, userName } =
+    useLoaderData();
   const axiosSecure = useAxiosSecure();
 
   const onSubmit = async (orderData) => {
@@ -20,6 +21,7 @@ const Order = () => {
       userName: orderData.userName,
       email: orderData.email,
       price: orderData.price,
+      foodOwner: userName,
     };
 
     if (email === user.email) {

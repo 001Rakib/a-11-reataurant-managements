@@ -1,5 +1,5 @@
 import { Label, TextInput } from "flowbite-react";
-import OnlineOrderImg from "../../../../public/FB_IMG_1717221369534.jpg";
+import OnlineOrderImg from "/FB_IMG_1717221369534.jpg";
 import Swal from "sweetalert2";
 const OrderOnline = () => {
   return (

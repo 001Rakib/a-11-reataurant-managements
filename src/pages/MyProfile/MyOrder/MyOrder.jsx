@@ -14,6 +14,13 @@ const MyOrder = () => {
       </>
     );
   }
+  if (orders.length === 0) {
+    return (
+      <div className="max-w-screen-xl mx-auto py-24">
+        <p>No Orders Found</p>
+      </div>
+    );
+  }
 
   return (
     <div>

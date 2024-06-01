@@ -13,7 +13,7 @@ const useMyOrder = () => {
     queryKey: ["orders"],
     queryFn: async () => {
       const res = await axiosSecure.get(`/orders?email=${user.email}`);
-      return res.data;
+      return res?.data;
     },
   });
   return [orders, refetch, loading];

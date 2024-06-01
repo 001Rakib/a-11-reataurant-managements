@@ -1,4 +1,4 @@
-import OnlineOrderImg from "../../../../public/FB_IMG_1717221373551.jpg";
+import OnlineOrderImg from "/FB_IMG_1717221373551.jpg";
 const AboutUs = () => {
   return (
     <>

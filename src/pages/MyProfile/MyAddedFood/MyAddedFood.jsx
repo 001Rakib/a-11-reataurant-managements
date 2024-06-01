@@ -17,7 +17,7 @@ const MyAddedFood = () => {
     queryKey: ["foods"],
     queryFn: async () => {
       const res = await axiosPublic.get(`/foods?email=${user.email}`);
-      return res.data;
+      return res?.data;
     },
   });
 
@@ -28,6 +28,14 @@ const MyAddedFood = () => {
           <span className="loading loading-spinner loading-lg"></span>
         </div>
       </>
+    );
+  }
+
+  if (data.length === 0) {
+    return (
+      <div className="max-w-screen-xl mx-auto py-24">
+        <p>You have not added any Food Yet</p>
+      </div>
     );
   }
 

@@ -1,10 +1,11 @@
+/* eslint-disable no-unused-vars */
 import { FcGoogle } from "react-icons/fc";
-import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 const SocialLogin = () => {
   const { googleSignIn } = useAuth();
-  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
   const navigate = useNavigate();
 
   const handleGoogleSignIn = () => {
@@ -14,8 +15,8 @@ const SocialLogin = () => {
           email: res.user?.email,
           name: res.user?.displayName,
         };
-        axiosPublic.post("/users", userInfo).then((res) => {
-          console.log(res.data);
+        axiosSecure.post("/users", userInfo).then((res) => {
+          console.log(res);
           navigate("/");
         });
       })

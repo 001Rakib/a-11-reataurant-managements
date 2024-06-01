@@ -57,12 +57,12 @@ const MyOrderCard = ({ foodItem }) => {
                     <span className="font-medium">Price:</span> {foodItem.price}
                   </p>
                   <p className="truncate text-sm font-medium text-gray-900 dark:text-white md:hidden">
-                    Food Owner: {foodItem.userName}
+                    Food Owner: {foodItem.foodOwner}
                   </p>
                 </div>
                 <div className="min-w-0 flex-1">
                   <p className="truncate text-sm font-medium text-gray-900 dark:text-white hidden md:flex">
-                    Food Owner: {foodItem.userName}
+                    Food Owner: {foodItem.foodOwner}
                   </p>
                 </div>
                 <div className="min-w-0 flex-1">
