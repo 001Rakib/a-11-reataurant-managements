@@ -14,7 +14,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <AuthProvider>
       <QueryClientProvider client={queryClient}>
         <HelmetProvider>
-          <RouterProvider router={router} />
+          <div className="font-poppins">
+            <RouterProvider router={router} />
+          </div>
         </HelmetProvider>
       </QueryClientProvider>
     </AuthProvider>
