@@ -1,6 +1,7 @@
 import { Helmet } from "react-helmet";
 import Navbar from "../../shared/navbar/Navbar";
 import Banner from "../banner/Banner";
+import ToopFoods from "../topFoods/ToopFoods";
 
 const Home = () => {
   return (
@@ -10,6 +11,7 @@ const Home = () => {
       </Helmet>
       <Navbar></Navbar>
       <Banner></Banner>
+      <ToopFoods></ToopFoods>
     </div>
   );
 };

@@ -1,11 +1,11 @@
 import { Card } from "flowbite-react";
-import useAxiosPublic from "../../hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 import useMyOrder from "../../hooks/useMyOrder";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 /* eslint-disable react/prop-types */
 const MyOrderCard = ({ foodItem }) => {
-  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
   const [, refetch] = useMyOrder();
 
   const handleDelete = (id) => {
@@ -19,7 +19,7 @@ const MyOrderCard = ({ foodItem }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axiosPublic.delete(`/orders/${id}`).then((res) => {
+        axiosSecure.delete(`/orders/${id}`).then((res) => {
           if (res.data.deletedCount > 0) {
             refetch();
             Swal.fire({
