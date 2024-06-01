@@ -2,14 +2,15 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import { useContext } from "react";
 import { AuthContext } from "../../../../providers/AuthProvider";
-import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { Link } from "react-router-dom";
 
 const AddFood = () => {
   const { register, handleSubmit, reset } = useForm();
   const { user } = useContext(AuthContext);
   const axiosSecure = useAxiosSecure();
+
   const onSubmit = async (data) => {
     const foodItem = {
       foodName: data.foodName,

@@ -9,7 +9,11 @@ const MyAddedFood = () => {
   const axiosPublic = useAxiosPublic();
   const { user } = useContext(AuthContext);
 
-  const { data, isPending: loading } = useQuery({
+  const {
+    data,
+    isPending: loading,
+    refetch,
+  } = useQuery({
     queryKey: ["foods"],
     queryFn: async () => {
       const res = await axiosPublic.get(`/foods?email=${user.email}`);
@@ -46,7 +50,11 @@ const MyAddedFood = () => {
           </h5>
         </div>
         {data?.map((item) => (
-          <MyAddedFoodCard key={item._id} foodItem={item}></MyAddedFoodCard>
+          <MyAddedFoodCard
+            key={item._id}
+            foodItem={item}
+            refetch={refetch}
+          ></MyAddedFoodCard>
         ))}
       </div>
     </div>
